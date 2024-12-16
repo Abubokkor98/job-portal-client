@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
-export default function HotJobCard({ job }) {
+export default function JobDetails() {
   const {
     _id,
     title,
@@ -11,9 +11,9 @@ export default function HotJobCard({ job }) {
     description,
     location,
     salaryRange,
-  } = job;
+  } = useLoaderData();
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div className="card card-compact bg-base-100 shadow-xl w-6/12 mx-auto">
       <div className="flex gap-2">
         <figure>
           <img className="w-16" src={company_logo} alt={company} />
@@ -40,9 +40,7 @@ export default function HotJobCard({ job }) {
           <p>
             Salary {salaryRange.min} {salaryRange.max} {salaryRange.currency}
           </p>
-          <Link to={`/jobs/${_id}`}>
-            <button className="btn btn-primary">Apply Now</button>
-          </Link>
+          <button className="btn btn-primary">Apply Now</button>
         </div>
       </div>
     </div>
