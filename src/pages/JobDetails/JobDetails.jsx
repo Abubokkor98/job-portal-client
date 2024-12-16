@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 export default function JobDetails() {
   const {
@@ -40,7 +40,9 @@ export default function JobDetails() {
           <p>
             Salary {salaryRange.min} {salaryRange.max} {salaryRange.currency}
           </p>
+          <Link to={`/jobApply/${_id}`}>
           <button className="btn btn-primary">Apply Now</button>
+          </Link>
         </div>
       </div>
     </div>
