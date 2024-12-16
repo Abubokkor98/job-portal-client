@@ -19,7 +19,7 @@ const Navbar = () => {
 
     const links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/myApplications">myApplications</NavLink></li>
         <li><NavLink to="/">Home</NavLink></li>
     </>
     return (

@@ -6,6 +6,8 @@ import SignIn from "../pages/SignIn/SignIn";
 import JobDetails from "../pages/JobDetails/JobDetails";
 import PrivateRoute from "./PrivateRoute";
 import JobApply from "../pages/JobApply/JobApply";
+import { path } from "motion/react-client";
+import MyApplications from "../pages/myApplications/MyApplications";
 
 const router = createBrowserRouter([
   {
@@ -34,8 +36,14 @@ const router = createBrowserRouter([
             <JobApply></JobApply>
           </PrivateRoute>
         ),
-        // loader: ({ params }) =>
-        //   fetch(`http://localhost:5000/jobs/${params.id}`),
+      },
+      {
+        path: "/myApplications",
+        element: (
+          <PrivateRoute>
+            <MyApplications></MyApplications>
+          </PrivateRoute>
+        ),
       },
       {
         path: "register",
@@ -45,7 +53,6 @@ const router = createBrowserRouter([
         path: "signIn",
         element: <SignIn></SignIn>,
       },
-
     ],
   },
 ]);
