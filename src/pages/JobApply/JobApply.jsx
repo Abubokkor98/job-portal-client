@@ -1,9 +1,11 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
+import useAuth from '../../custom-hooks/UseAuth';
 
 export default function JobApply() {
     const {id} = useParams();
-    console.log(id);
+    const {user} = useAuth();
+    // console.log(id, user);
 
 
     const handleSubmitApplication = e =>{
@@ -13,7 +15,16 @@ export default function JobApply() {
         const linkedIn = form.linkedIn.value;
         const github = form.github.value;
         const resume = form.resume.value;
-        console.log(linkedIn, github, resume);
+        // console.log(linkedIn, github, resume);
+
+        const jobApplication = {
+            job_id: id,
+            applicant_email: user.email,
+            linkedIn,
+            github,
+            resume
+        }
+        console.log(jobApplication);
     }
 
   return (
