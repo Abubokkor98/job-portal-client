@@ -24,8 +24,9 @@ const SignIn = () => {
         console.log("sign in", result.user.email);
         const user = { email: email };
         // using axios
-        axios.post("http://localhost:5000/jwt", user).then((data) => {
-          console.log(data);
+        axios.post("http://localhost:5000/jwt", user)
+        .then((res) => {
+          console.log(res.data);
         });
 
         // Navigate(from);
