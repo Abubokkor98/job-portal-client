@@ -22,14 +22,23 @@ export default function useAxiosSecure() {
           console.log("need to logout this user");
           signOutUser()
             .then(() => {
-              console.log("user logged out from axios");
+                // redirect to the login page
               navigate("/signIn");
             })
             .catch((error) => console.log(error));
         }
+        return Promise.reject(error);
       }
     );
   }, []);
 
   return axiosInstance;
 }
+
+/**
+ * axios: get, post, put/patch, delete --> easier
+ * interceptor: client ----------|---------------> server
+ * client <------------------|------------------Server
+ * in the interceptor for response == needs two function
+ *
+ */
